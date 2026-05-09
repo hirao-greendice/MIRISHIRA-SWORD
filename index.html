@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#080713" />
+    <title>IRIS Lock Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app" aria-label="IRIS Lock Demo">
+      <section class="stage" id="stage">
+        <img class="backdrop" src="back.webp" alt="" draggable="false" />
+
+        <div class="start-screen" id="startScreen">
+          <div class="start-panel">
+            <p class="kicker">PHASE 3/3</p>
+            <h1>IRIS LOCK</h1>
+            <button class="start-button" id="startButton" type="button">START</button>
+          </div>
+        </div>
+
+        <div class="game-layer is-hidden" id="gameLayer" aria-live="polite">
+          <div class="top-status">
+            <span id="statusText">LOCKED</span>
+            <div class="steps" aria-hidden="true">
+              <span class="step-dot" data-step="0"></span>
+              <span class="step-dot" data-step="1"></span>
+              <span class="step-dot" data-step="2"></span>
+            </div>
+          </div>
+
+          <button class="hotspot attack" type="button" data-action="attack" aria-label="Attack"></button>
+          <button class="hotspot guard" type="button" data-action="guard" aria-label="Guard"></button>
+          <button class="hotspot skill" type="button" data-action="skill" aria-label="Skill"></button>
+          <button class="hotspot analyze" type="button" data-action="analyze" aria-label="Analyze"></button>
+          <button class="hotspot item" type="button" data-action="item" aria-label="Item"></button>
+          <button class="hotspot charge" type="button" data-action="charge" aria-label="Charge"></button>
+
+          <div class="result is-hidden" id="resultText">CORE OPEN</div>
+        </div>
+      </section>
+    </main>
+
+    <audio id="bgm" src="music.mp3" preload="auto" loop></audio>
+    <script src="game.js"></script>
+  </body>
+</html>
