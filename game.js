@@ -24,6 +24,7 @@ startButton.addEventListener("click", async () => {
   startScreen.classList.add("is-hidden");
   gameLayer.classList.remove("is-hidden");
   statusText.textContent = "IRIS CORE";
+  requestFullscreenMode();
 
   try {
     bgm.volume = 0.72;
@@ -84,5 +85,23 @@ function unlockCore() {
   resultText.classList.remove("is-hidden");
   hotspots.forEach((button) => {
     button.disabled = true;
+  });
+}
+
+async function requestFullscreenMode() {
+  const root = document.documentElement;
+
+  if (!document.fullscreenElement && root.requestFullscreen) {
+    try {
+      await root.requestFullscreen();
+    } catch {
+      // Some mobile browsers only allow installed standalone display.
+    }
+  }
+}
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("service-worker.js").catch(() => {});
   });
 }

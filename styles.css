@@ -30,7 +30,7 @@ button {
   inset: 0;
   display: grid;
   place-items: center;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  padding: 0;
   background:
     radial-gradient(circle at 50% 45%, rgba(97, 51, 168, 0.25), transparent 42%),
     #05040a;
